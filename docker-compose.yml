@@ -1,0 +1,16 @@
+services:
+  db:
+    image: postgres:15.15-trixie
+    container_name: mi_bd_postgre
+    restart: always
+    environment:
+      POSTGRES_USER: usuario
+      POSTGRES_PASSWORD: usuario1234
+      POSTGRES_DB: bd_flask
+    ports:
+      - "5432:5432" 
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
