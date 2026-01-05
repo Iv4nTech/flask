@@ -6,6 +6,28 @@ from forms import AlumnoForm
 
 app = Flask(__name__)
 
+#FILTRO PARA JINJA
+
+# @app.add_template_filter
+# def cambiar_e_por_3(alumno):
+#     return str(alumno).replace('e', '3')
+
+def cambiar_e_por_3(alumno):
+    return str(alumno).replace('e', '3')
+
+app.add_template_filter(cambiar_e_por_3, 'cambiar_e_por_3')
+
+
+#Funciones en plantilla
+# @app.add_template_global
+# def multiplicar_caracteres(str, veces):
+#     return str * veces
+
+def multiplicar_caracteres(str, veces):
+    return str * veces
+
+app.add_template_global(multiplicar_caracteres, 'multiplicar_caracteres')
+
 #DATOS PARA CONECTAR A LA BD
 
 USER_DB = 'usuario'

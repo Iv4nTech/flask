@@ -7,12 +7,13 @@
 </head>
 <body>
     <h1>Inicio</h1>
-    <h2>Lista de alumnos - Total alumnos {{total_alumnos}}</h2>
+    <h2>Lista de alumnos - Total alumnos{{total_alumnos}}</h2>
     <ul>
         <a href="{{url_for('insertar_alumno')}}">Insertar</a>
-       {% for alumno in alumnos %}
-       <li>{{alumno}}<a href="{{ url_for('detalle_alumno', id=alumno.id) }}">Ver</a><a href="{{url_for('editar_alumno', id=alumno.id)}}">Editar</a><a href="{{url_for('eliminar_alumno', id=alumno.id)}}">Eliminar</a></li>
+       {% for alumno in alumnos | reverse  %}
+       <li>{{alumno | cambiar_e_por_3 }}<a href="{{ url_for('detalle_alumno', id=alumno.id) }}">Ver</a><a href="{{url_for('editar_alumno', id=alumno.id)}}">Editar</a><a href="{{url_for('eliminar_alumno', id=alumno.id)}}">Eliminar</a></li>
        {% endfor %}
     </ul>
+    <small>Esto es una prueba de las funciones personalizadas en plantilla {{multiplicar_caracteres('Hola', 3)}}</small>
 </body>
 </html>
