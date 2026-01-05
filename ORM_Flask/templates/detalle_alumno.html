@@ -1,12 +1,7 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detalle del alumno {{alumno.id}}
-    </title>
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block tittle %}Detalle alumno{% endblock %}
+{% block content %}
     <h2>Detalle del alumno {{alumno.nombre}} {{alumno.apellidos}}</h2>
     <div>
         <p>Nombre: {{alumno.nombre}}</p>
@@ -14,5 +9,4 @@
        <p>Fecha nacimiento: {{alumno.fecha_nac}}</p>
     </div>
     <a href="{{url_for('inicio')}}">Volver a inicio</a>
-</body>
-</html>
+{% endblock %}

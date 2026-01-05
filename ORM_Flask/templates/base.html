@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block tittle %} Titulo por defecto {% endblock %}</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="">Inicio</a></li>
+                <li><a href="">Alumnos</a></li>
+                <li><a href="">Etc...</a></li>
+            </ul>
+        </nav>
+    </header>
+    {% block content %}
+    <p>Contenido por defecto</p>
+    {% endblock %}
+    <footer>&copy; Derechos reservados, también los izquierdos</footer>
+</body>
+</html>
