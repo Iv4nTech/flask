@@ -1,0 +1,237 @@
+/* --- Variables y Reset --- */
+:root {
+    --primary-color: #4a90e2; /* Azul moderno */
+    --secondary-color: #2c3e50; /* Azul oscuro para textos */
+    --accent-color: #e74c3c; /* Rojo para eliminar */
+    --success-color: #27ae60; /* Verde para acciones positivas */
+    --warning-color: #f39c12; /* Naranja para editar */
+    --bg-color: #f4f6f8; /* Gris muy claro de fondo */
+    --card-bg: #ffffff;
+    --text-color: #333333;
+    --border-radius: 8px;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* --- Header y Navegación --- */
+header {
+    background-color: var(--card-bg);
+    box-shadow: var(--shadow);
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    justify-content: center; /* O 'flex-start' si prefieres a la izquierda */
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--secondary-color);
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: var(--primary-color);
+}
+
+/* --- Contenedor Principal --- */
+/* Como no hay un div contenedor en el base, aplicamos estilos a los elementos directos o creamos reglas generales */
+body > h1, body > h2, body > form, body > div, body > ul, body > p {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Títulos */
+h1, h2 {
+    color: var(--secondary-color);
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+/* --- Listas de Alumnos (Estilo Tarjeta) --- */
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+/* El enlace "Insertar" que está suelto en la lista */
+ul > a[href*="insertar"] {
+    display: block;
+    width: fit-content;
+    margin: 1rem auto;
+    background-color: var(--success-color);
+    color: white;
+    padding: 10px 20px;
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    font-weight: bold;
+    text-align: center;
+    box-shadow: var(--shadow);
+    transition: transform 0.2s;
+}
+
+ul > a[href*="insertar"]:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+/* Items de la lista (Alumnos) */
+li {
+    background-color: var(--card-bg);
+    margin-bottom: 1rem;
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Para móviles */
+    gap: 10px;
+}
+
+/* Estilo del texto del alumno en la lista */
+li::first-line {
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+/* Botones de acción dentro de la lista (Ver, Editar, Eliminar) */
+li a {
+    text-decoration: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    margin-left: 5px;
+    font-weight: 500;
+    transition: background 0.3s;
+}
+
+/* Colores específicos para los botones */
+a[href*="detalle"] { background-color: #eef2f7; color: var(--primary-color); }
+a[href*="editar"] { background-color: #fff8e1; color: var(--warning-color); }
+a[href*="eliminar"] { background-color: #fceceb; color: var(--accent-color); }
+
+li a:hover {
+    filter: brightness(0.95);
+}
+
+/* --- Formularios --- */
+form {
+    background-color: var(--card-bg);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+form p {
+    display: flex;
+    flex-direction: column;
+    margin: 0 !important; /* Sobrescribir el margen global */
+    padding: 0 !important;
+}
+
+label {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--secondary-color);
+}
+
+input[type="text"],
+input[type="date"],
+input[type="email"] {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="date"]:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+/* Botón de guardar (input submit) */
+input[type="submit"] {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    margin-top: 10px;
+    transition: background 0.3s;
+}
+
+input[type="submit"]:hover {
+    background-color: #357abd;
+}
+
+/* --- Detalle Alumno --- */
+/* Contenedor de detalles */
+div p {
+    background: var(--card-bg);
+    padding: 1rem;
+    border-bottom: 1px solid #eee;
+    margin: 0 !important;
+}
+
+div p:first-child { border-radius: var(--border-radius) var(--border-radius) 0 0; }
+div p:last-child { border-radius: 0 0 var(--border-radius) var(--border-radius); border-bottom: none; }
+
+/* Enlaces de "Volver" */
+a[href*="inicio"] {
+    display: inline-block;
+    margin-top: 20px;
+    color: var(--secondary-color);
+    text-decoration: underline;
+}
+
+/* --- Footer --- */
+footer {
+    margin-top: auto; /* Empuja el footer al fondo si hay poco contenido */
+    text-align: center;
+    padding: 2rem;
+    color: #7f8c8d;
+    font-size: 0.9rem;
+    border-top: 1px solid #e1e1e1;
+}
+
+small {
+    display: block;
+    text-align: center;
+    margin-top: 2rem;
+    color: #999;
+}
