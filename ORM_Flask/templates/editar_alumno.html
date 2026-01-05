@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insertar alumno
+    </title>
+</head>
+<body>
+    <h2>Editar alumno</h2>
+    <form action="" method="POST">
+           {{form.csrf_token}}
+        <p>  {{form.nombre.label}}
+        {{form.nombre(size=50)}}</p>
+        <p> {{form.apellidos.label}}
+        {{form.apellidos(size=50)}}</p>
+        <p>   {{form.fecha_nac.label}}
+        {{form.fecha_nac}}</p>
+        <p>{{form.guardar}}</p>
+    </form>
+    <a href="{{url_for('inicio')}}">Volver a inicio</a>
+</body>
+</html>

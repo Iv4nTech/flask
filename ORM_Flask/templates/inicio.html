@@ -9,8 +9,9 @@
     <h1>Inicio</h1>
     <h2>Lista de alumnos - Total alumnos {{total_alumnos}}</h2>
     <ul>
+        <a href="{{url_for('insertar_alumno')}}">Insertar</a>
        {% for alumno in alumnos %}
-       <li>{{alumno}}</li>
+       <li>{{alumno}}<a href="{{ url_for('detalle_alumno', id=alumno.id) }}">Ver</a><a href="{{url_for('editar_alumno', id=alumno.id)}}">Editar</a><a href="{{url_for('eliminar_alumno', id=alumno.id)}}">Eliminar</a></li>
        {% endfor %}
     </ul>
 </body>
